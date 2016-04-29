@@ -1,7 +1,6 @@
 import {NEW_RELEASE} from './movie-codes';
 
 let makeCustomerFrom = (name) => {
-
   let rentals = [];
 
   return {
@@ -15,13 +14,7 @@ let makeCustomerFrom = (name) => {
 
       for (let i = 0; i < rentals.length; i++) {
         let each = rentals[i];
-
-        // add frequent renter points
-        frequentRenterPoints++;
-
-        // add bonus for a two day new release rental
-        if ((each.movie.priceCode === NEW_RELEASE) &&
-            each.daysRented > 1) frequentRenterPoints++;
+        frequentRenterPoints += each.getFrequentRenterPoints();
 
         //show figures for this rental
         statement += '\t' + each.movie.title + '\t' +

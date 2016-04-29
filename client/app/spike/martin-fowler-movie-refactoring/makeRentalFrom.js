@@ -1,6 +1,13 @@
 import {REGULAR, NEW_RELEASE, CHILDRENS} from './movie-codes';
 
 let makeRentalFrom = (movie, daysRented) => {
+  function getFrequentRenterPoints() {
+    let frequentRenterPoints = 1;
+    // add bonus for a two day new release rental
+    if ((movie.priceCode === NEW_RELEASE) && daysRented > 1) frequentRenterPoints++;
+    return frequentRenterPoints;
+  }
+
   function getCharge() {
     let thisAmount = 0;
     //noinspection Eslint
@@ -35,6 +42,7 @@ let makeRentalFrom = (movie, daysRented) => {
 
   return {
     getCharge: getCharge,
+    getFrequentRenterPoints: getFrequentRenterPoints,
     get movie() { return movie; },
     get daysRented() { return daysRented; }
   };
