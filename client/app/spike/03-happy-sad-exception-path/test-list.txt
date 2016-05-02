@@ -5,9 +5,9 @@
 √ mom mom === true
 √ mom dad === false
 
-'' === false
-'   ' === false
-0 === false
+√ '' === false
+√ '   ' === false
+√ 0 === false
 
 pass no arguments then
 throw exception:

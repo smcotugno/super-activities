@@ -1,7 +1,10 @@
 import {describe, expect, it} from '../test-helper';
 
 function isPalindrome(phrase) {
-  return phrase === phrase.split('').reverse().join('');
+  if (arguments.length === 0) throw new Error('Invalid Argument');
+  if (typeof phrase !== 'string') return false;
+  return (phrase.trim().length > 0) &&
+      phrase === phrase.split('').reverse().join('');
 }
 describe('palindrome should', () => {
   it('prove the test infrastructure works', () => {
@@ -83,5 +86,46 @@ describe('palindrome should', () => {
 
     // assert ...
     expect(result).to.equal(false);
+  });
+
+  it(' \'\' === false', () => {
+    // arrange ...
+    const phrase = '';
+
+    // act ...
+    let result = isPalindrome(phrase);
+
+    // assert ...
+    expect(result).to.equal(false);
+  });
+
+  it(' \'   \' === false', () => {
+    // arrange ...
+    const phrase = '   ';
+
+    // act ...
+    let result = isPalindrome(phrase);
+
+    // assert ...
+    expect(result).to.equal(false);
+  });
+
+  it(' 0 === false', () => {
+    // arrange ...
+    const phrase = 0;
+
+    // act ...
+    let result = isPalindrome(phrase);
+
+    // assert ...
+    expect(result).to.equal(false);
+  });
+
+  it('pass no arguments then throw exception: "Invalid Argument"', () => {
+    // arrange ...
+    const func = function () {isPalindrome();};
+
+    // act ...assert ...
+    expect(func).to.throw(Error, 'Invalid Argument');
   });
 });
