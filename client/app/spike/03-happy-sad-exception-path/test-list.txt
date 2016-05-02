@@ -1,10 +1,9 @@
 √ madam === true
 √ dude === false
-level === true
-civic === true
-mom mom === true
-
-mom dad === false
+√ level === true
+√ civic === true
+√ mom mom === true
+√ mom dad === false
 
 '' === false
 '   ' === false

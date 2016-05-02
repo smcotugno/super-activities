@@ -29,4 +29,59 @@ describe('palindrome should', () => {
     // assert ...
     expect(result).to.equal(false);
   });
+
+  it('level === true', () => {
+    // arrange ...
+    const phrase = 'level';
+
+    // act ...
+    let result = isPalindrome(phrase);
+
+    // assert ...
+    expect(result).to.equal(true);
+  });
+
+  it('civic === true', () => {
+    // arrange ...
+    const phrase = 'civic';
+
+    // act ...
+    let result = isPalindrome(phrase);
+
+    // assert ...
+    expect(result).to.equal(true);
+  });
+
+  it('civic === true', () => {
+    // arrange ...
+    const phrase = 'civic';
+
+    // act ...
+    let result = isPalindrome(phrase);
+
+    // assert ...
+    expect(result).to.equal(true);
+  });
+
+  it('mom mom === true', () => {
+    // arrange ...
+    const phrase = 'mom mom';
+
+    // act ...
+    let result = isPalindrome(phrase);
+
+    // assert ...
+    expect(result).to.equal(true);
+  });
+
+  it('mom dad === false', () => {
+    // arrange ...
+    const phrase = 'mom dad';
+
+    // act ...
+    let result = isPalindrome(phrase);
+
+    // assert ...
+    expect(result).to.equal(false);
+  });
 });
