@@ -1,6 +1,6 @@
 √ canary test
 √ 32˚ fahrenheit === 0˚ celsius
-50° fahrenheit === 10° celsius
-212˚ fahrenheit === 100˚ celsius
+√ 50° fahrenheit === 10° celsius
+√ 212˚ fahrenheit === 100˚ celsius
 68˚ fahrenheit === 20˚ celsius
 
