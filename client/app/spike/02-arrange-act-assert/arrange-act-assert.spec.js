@@ -41,4 +41,15 @@ describe('fahrenheit converter should', () => {
     // assert ...
     expect(celsius).to.equal(100);
   });
+
+  it('68˚ fahrenheit === 20˚ celsius', () => {
+    // arrange...
+    let fahrenheit = 68;
+
+    // act ...
+    let celsius = fahrenheit2celsius(fahrenheit);
+
+    // assert ...
+    expect(celsius).to.equal(20);
+  });
 });
