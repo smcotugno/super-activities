@@ -1,14 +1,11 @@
 √ madam === true
 √ dude === false
-√ level === true
-√ civic === true
-√ mom mom === true
 √ mom dad === false
 
 √ '' === false
 √ '   ' === false
 √ 0 === false
 
-pass no arguments then
+√ pass no arguments then
 throw exception:
 "Invalid Argument"
