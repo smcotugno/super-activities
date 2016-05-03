@@ -1,0 +1,7 @@
+√ addition               10 + 5 = 15
+√ addition               15 + 15 = 30
+√ subtraction            10 - 5 = 5
+√ multiplication         10 * 5 = 50
+√ division               10 / 5 = 2
+√ divide-by-zero errors  10 / 0 = undefined
+
