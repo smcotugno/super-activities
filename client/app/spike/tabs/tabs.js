@@ -5,7 +5,7 @@ import {home} from './home/home';
 import {approach} from './approach/approach';
 import {details} from './details/details';
 import {contacts} from './contacts/contacts';
-import {drilldown} from '../../spike/drilldown/drilldown';
+import {drilldown} from '../drilldown/drilldown';
 import {tabsDirective} from './tabs.directive.js';
 
 import ngAnimate from 'angular-animate';
