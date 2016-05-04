@@ -1,8 +1,5 @@
 import {describe, expect, it} from '../test-helper';
-
-function fahrenheit2celsius(temperature) {
-  return ((temperature - 32) * 5) / 9;
-}
+import {fahrenheit2celsius} from './fahrenheit2celsius';
 
 describe('fahrenheit converter should', () => {
   it('prove the test infrastructure works', () => {
