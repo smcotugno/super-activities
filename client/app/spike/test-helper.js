@@ -1,7 +1,8 @@
+import chai from 'chai';
 let describe = global.describe;
 let beforeEach = global.beforeEach;
 let it = global.it;
-import {expect} from 'chai';
+let expect = chai.expect;
 
 export {describe, beforeEach, expect, it};
 
