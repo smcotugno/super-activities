@@ -8,11 +8,6 @@ app.use(function (req, res, next) {
 
   var credentials = auth(req);
 
-  if (!credentials || credentials.name !== 'john' || credentials.pass !== 'secret') {
-    res.statusCode = 401;
-    res.setHeader('WWW-Authenticate', 'Basic realm="example"');
-    return res.end('Access denied');
-  }
   next();
 });
 
