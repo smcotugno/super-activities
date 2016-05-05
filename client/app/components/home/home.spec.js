@@ -48,12 +48,21 @@ describe('home page', () => {
       expect($(element).find('[rel=log-button]').text()).to.equal('Activity Log');
     });
   });
+
   describe('clicking ', () => {
     it('"Activities" button goes to: the Activities Page', () => {
       td.replace($state, 'go');
       $(element).find('[rel=activity-button]').click();
       $scope.$apply();
       td.verify($state.go('activity'));
+      td.reset();
+    });
+
+    it('"Points" button goes to: the Points Page', () => {
+      td.replace($state, 'go');
+      $(element).find('[rel=points-button]').click();
+      $scope.$apply();
+      td.verify($state.go('points'));
       td.reset();
     });
   });
