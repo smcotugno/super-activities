@@ -24,7 +24,7 @@ describe('activity page', () => {
     $scope.$digest();
   }));
 
-  describe('should have', () => {
+  describe('the Activity page should have', () => {
     it('a url called /activity', () => {
       $state.go('activity');
       $scope.$apply();
@@ -32,13 +32,19 @@ describe('activity page', () => {
     });
 
     it('a title called hello activity', () => {
-      // console.log($(element).find('h1'));
-      expect($(element).find('h1').text()).to.equal('hello activity');
+      expect($(element).find('[rel=title]').text()).to.equal('Activity List');
     });
 
-    it('indicator top right for current activity', () => {
-      // console.log($(element).find('h1'));
-      expect($(element).find('h1').text()).to.equal('hello activity');
+    it('activity name basketball', () => {
+      $scope.$apply();
+      let scope = element.isolateScope();
+      expect(scope.activity).to.equal('Basketball');
+    });
+
+    it('basketball points', () => {
+      $scope.$apply();
+      let scope = element.isolateScope();
+      expect(scope.points).to.equal(50);
     });
 
   });
