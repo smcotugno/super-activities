@@ -47,4 +47,8 @@ describe('home page', () => {
       expect($(element).find('[rel=log-button]').text()).to.equal('Activity Log');
     });
   });
+  describe('clicking ', () => {
+    it('"Activities" button goes to: the Activities Page', () => {
+    });
+  });
 });
