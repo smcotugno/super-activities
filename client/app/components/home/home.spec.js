@@ -38,5 +38,9 @@ describe('home page', () => {
     it('a button labeled "Activities"', () => {
       expect($(element).find('[rel=activity-button]').text()).to.equal('Activities');
     });
+
+    it('a button labeled "Points"', () => {
+      expect($(element).find('[rel=points-button]').text()).to.equal('Points');
+    });
   });
 });
