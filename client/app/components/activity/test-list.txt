@@ -3,11 +3,11 @@ should have
 √  a title called hello activity
   indicator top right for current activity
   list of canned activities
+  current activity is greyed out
 
 the top right indicator should have
-  current activity  or none
+  current activity
   clicking current activity should bring you to activity details
-  none is greyed out
 
 list of canned activities should have
   activity name
