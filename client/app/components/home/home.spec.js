@@ -24,7 +24,7 @@ describe('home page', () => {
     $scope.$digest();
   }));
 
-  describe.only('should have', () => {
+  describe('should have', () => {
     it('a url called /home', () => {
       $state.go('home');
       $scope.$apply();
@@ -35,5 +35,8 @@ describe('home page', () => {
       expect($(element).find('h1').text()).to.equal('Play Outside');
     });
 
+    it('a button labeled "Activities"', () => {
+      expect($(element).find('[rel=activity-button]').text()).to.equal('Activities');
+    });
   });
 });
