@@ -47,5 +47,13 @@ describe('details page', () => {
     it('Button: Start', () => {
     expect($(element).find('[rel = start]').text()).to.equal('Start');
   });
+
+    it('Button: Done', () => {
+    expect($(element).find('[rel = done]').text()).to.equal('Done');
+  });
+
+    it('Button: Cancel', () => {
+    expect($(element).find('[rel = cancel]').text()).to.equal('Cancel');
+  });
 });
 });

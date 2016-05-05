@@ -2,7 +2,8 @@
 //Should have a Title: Name of activity
 //Should have a description: Contents of activity record.
 //Should have some point value from activity record: display at top right?
-Button for start event: Marks event in progress
+//Button for start event
+Start button marks event in progress
 Start Event should allow other buttons
 Done should enable re-start.
 Done should post points to app
