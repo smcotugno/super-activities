@@ -31,9 +31,21 @@ describe('details page', () => {
       expect($state.current.url).to.equal('/details');
     });
 
-    it('a title called hello details', () => {
+    it('a title: Activity Name', () => {
       expect($(element).find('h1').text()).to.equal('Activity name');
     });
 
+    it('Some text: the activity description', () => {
+      expect($(element).find('h2').text()).to.equal('Description');
+    });
+
+
+  it('Some text: the point value', () => {
+    expect($(element).find('h4').text()).to.equal('Point Value');
   });
+
+    it('Button: Start', () => {
+    expect($(element).find('[rel = start]').text()).to.equal('Start');
+  });
+});
 });
