@@ -4,4 +4,4 @@
 √ a button labeled "Activity Log"
 √ "Activities" button goes to: the Activities Page
 √ "Points" button goes to: the Points Page
-"Activity Log" button goes to: the Activity Log Page
+√ "Activity Log" button goes to: the Activity Log Page

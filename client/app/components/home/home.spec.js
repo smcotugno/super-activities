@@ -65,5 +65,13 @@ describe('home page', () => {
       td.verify($state.go('points'));
       td.reset();
     });
+
+    it('"Activity Log" button goes to: the Activity Log Page', () => {
+      td.replace($state, 'go');
+      $(element).find('[rel=log-button]').click();
+      $scope.$apply();
+      td.verify($state.go('history'));
+      td.reset();
+    });
   });
 });
