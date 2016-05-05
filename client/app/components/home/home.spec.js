@@ -4,7 +4,7 @@ import angular from 'angular';
 
 import {home} from './home';
 
-describe('history page', () => {
+describe('home page', () => {
   let element;
   let $ = window.$;
   let $state;
@@ -24,15 +24,15 @@ describe('history page', () => {
     $scope.$digest();
   }));
 
-  describe('should have', () => {
+  describe.only('should have', () => {
     it('a url called /home', () => {
       $state.go('home');
       $scope.$apply();
       expect($state.current.url).to.equal('/home');
     });
 
-    it('a title called hello history', () => {
-      expect($(element).find('h1').text()).to.equal('hello home');
+    it('a title at the top: Play Outside', () => {
+      expect($(element).find('h1').text()).to.equal('Play Outside');
     });
 
   });

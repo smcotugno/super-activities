@@ -1,0 +1,4 @@
+√ a title at the top: Play Outside
+a button labeled "Activities" that goes to: the Activities Page
+a button labeled "Points" that goes to: the Points Page
+a button labeled "Activity Log" that goes to: the Activity Log Page
