@@ -1,0 +1,15 @@
+//Should have a url: /details
+//Should have a Title: Name of activity
+Should have a description: Contents of activity record.
+Should have some point value from activity record: display at top right?
+Button for start event: Marks event in progress
+Start Event should allow other buttons
+Done should enable re-start.
+Done should post points to app
+Done clears current activity.
+Done should disable done and cancel button
+Done should go to Points page
+Cancel should disable done and cancel
+Cancel should enable start
+Cancel should clear current activity.
+Cancel should go to Home page
