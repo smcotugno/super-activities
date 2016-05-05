@@ -32,7 +32,7 @@ describe('points page', () => {
     });
 
     it('a title called hello points', () => {
-      expect($(element).find('h1').text()).to.equal('hello points');
+      expect($(element).find('h1').text()).to.equal(' ');
     });
 
   });
