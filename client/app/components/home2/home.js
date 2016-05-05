@@ -11,13 +11,16 @@ export const home = angular.module('home', [
   ngMaterial
 ])
 
-.config( ($stateProvider) => {
+.config( ($stateProvider, $urlRouterProvider) => {
+  $urlRouterProvider
+      .when('/', '/home')
+      .otherwise('/home');
+
   $stateProvider.
-      state('main.home', {
-        url: '/home',
-        selectedTab: 0,
-        template: '<home></home>'
-      });
+  state('home', {
+    url: '/home',
+    template: '<home></home>'
+  });
 })
 
 .directive('home', homeDirective);
