@@ -1,7 +1,10 @@
-let DetailsController = () => {};
+let HomeController = ($scope) => {
+  $scope.title = 'Play Outside';
 
-DetailsController.$inject = [];
+};
 
-export {DetailsController};
+HomeController.$inject = ['$scope'];
+
+export {HomeController};
 
 
