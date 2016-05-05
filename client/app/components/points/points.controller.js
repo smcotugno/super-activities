@@ -1,6 +1,10 @@
-let PointsController = () => {};
+let PointsController = ($scope, $state) => {
+  $scope.goToHome = function goToHome() {
+    $state.go('home');
+  };
+};
 
-PointsController.$inject = [];
+PointsController.$inject = ['$scope', '$state'];
 
 export {PointsController};
 
