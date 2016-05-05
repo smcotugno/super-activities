@@ -2,7 +2,7 @@ import {describe, beforeEach, expect, it} from '../test-helper';
 import 'script!jquery/dist/jquery';
 import angular from 'angular';
 
-import {history} from './history';
+import {home} from './home';
 
 describe('history page', () => {
   let element;
@@ -11,11 +11,11 @@ describe('history page', () => {
   let $scope;
 
   let buildTemplate = () => {
-    return angular.element('<history></history>');
+    return angular.element('<home></home>');
   };
 
   beforeEach(window.module('ui.router'));
-  beforeEach(window.module(history.name));
+  beforeEach(window.module(home.name));
 
   beforeEach(window.inject(($rootScope, $compile, _$state_) => {
     $state = _$state_;
@@ -25,14 +25,14 @@ describe('history page', () => {
   }));
 
   describe('should have', () => {
-    it('a url called /history', () => {
-      $state.go('history');
+    it('a url called /home', () => {
+      $state.go('home');
       $scope.$apply();
-      expect($state.current.url).to.equal('/history');
+      expect($state.current.url).to.equal('/home');
     });
 
     it('a title called hello history', () => {
-      expect($(element).find('h1').text()).to.equal('hello history');
+      expect($(element).find('h1').text()).to.equal('hello home');
     });
 
   });

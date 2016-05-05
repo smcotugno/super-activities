@@ -32,7 +32,6 @@ describe('points page', () => {
     });
 
     it('a title called hello points', () => {
-      console.log($(element).find('h1'));
       expect($(element).find('h1').text()).to.equal('hello points');
     });
 
