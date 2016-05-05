@@ -1,6 +1,7 @@
 import {describe, beforeEach, expect, it} from '../test-helper';
 import 'script!jquery/dist/jquery';
 import angular from 'angular';
+import td from 'testdouble';
 
 import {home} from './home';
 
@@ -45,6 +46,15 @@ describe('home page', () => {
 
     it('a button labeled "Activity Log"', () => {
       expect($(element).find('[rel=log-button]').text()).to.equal('Activity Log');
+    });
+  });
+  describe('clicking ', () => {
+    it('"Activities" button goes to: the Activities Page', () => {
+      td.replace($state, 'go');
+      $(element).find('[rel=activity-button]').click();
+      $scope.$apply();
+      td.verify($state.go('activity'));
+      td.reset();
     });
   });
 });
