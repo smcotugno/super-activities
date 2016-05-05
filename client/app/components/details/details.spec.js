@@ -48,6 +48,18 @@ describe('details page', () => {
     expect($(element).find('[rel = start]').text()).to.equal('Start');
   });
 
+    /*describe('Start button should', () => {
+       it('Mark the activity as in-progress', () =>{
+         let someActivity = {
+           inProgress: false
+         };
+         //click Start button: J doesn't know this code.
+
+         //after button click: This should happen
+          expect(someActivity.inProgress).to.equal(true);
+       });
+    }); */
+
     it('Button: Done', () => {
     expect($(element).find('[rel = done]').text()).to.equal('Done');
   });
