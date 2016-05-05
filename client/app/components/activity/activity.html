@@ -1,3 +1,36 @@
 <div>
-<h1>hello activity</h1>
+  <md-toolbar>
+    <div class = "md-toolbar-tools">
+      <md-button aria-label = "Home">
+        Home
+      </md-button>
+      <h1>
+        <span rel="title">Activity List</span>
+      </h1>
+      <span flex = ""></span>
+      <md-button class = "md-raised" aria-label = "Current Activity">
+        Current Activity
+      </md-button>
+      <md-button class = "md-icon-button" style = "color: green;"
+                 aria-label = "Points">
+        <i class = "material-icons" style = "color: gold;">attach_money</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-list>
+    <md-list-item class = "secondary-button-padding">
+      <table cellspacing="25">
+      <tr>
+      <td><h3>{{activity}}</h3></td>
+      <td><h3>{{points}}</h3></td>
+        <td>
+          <md-button class = "md-secondary" ng-click = "doSecondaryAction($event)">
+            Details
+          </md-button>
+        </td>
+      </tr>
+      </table>
+    </md-list-item>
+  </md-list>
 </div>

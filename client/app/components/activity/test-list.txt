@@ -1,8 +1,10 @@
 should have
 √  a url called /activity
-√  a title called hello activity
-  indicator top right for current activity
+√  a title called activity list
+√   a single activity called basketball
+  a canned activity
   list of canned activities
+  indicator top right for current activity
   current activity is greyed out
 
 the top right indicator should have
@@ -15,6 +17,23 @@ list of canned activities should have
   clicking the activity will bring you to the activity details
 
 
+
+     /*
+      it('list of canned activities', () => {
+        // console.log($(element).find('h1'));
+        expect($(element).find('h1').text()).to.equal('activity list');
+      });
+
+      it('indicator top right for current activity', () => {
+        // console.log($(element).find('h1'));
+        expect($(element).find('h1').text()).to.equal('current activity');
+      });
+
+      it('current activity is greyed out', () => {
+          // console.log($(element).find('h1'));
+          expect($(element).find('h1').text()).to.equal('current activity');
+        });
+      */
 
 
 
