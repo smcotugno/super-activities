@@ -1,3 +1,4 @@
+import './home.styl';
 import template from './home.html';
 
 export const homeDirective = () => {

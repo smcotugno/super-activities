@@ -4,7 +4,7 @@ import angular from 'angular';
 
 import {home} from './home';
 
-describe('history page', () => {
+describe('home page', () => {
   let element;
   let $ = window.$;
   let $state;
@@ -31,9 +31,16 @@ describe('history page', () => {
       expect($state.current.url).to.equal('/home');
     });
 
-    it('a title called hello history', () => {
-      expect($(element).find('h1').text()).to.equal('hello home');
+    it('a title at the top: Play Outside', () => {
+      expect($(element).find('h1').text()).to.equal('Play Outside');
     });
 
+    it('a button labeled "Activities"', () => {
+      expect($(element).find('[rel=activity-button]').text()).to.equal('Activities');
+    });
+
+    it('a button labeled "Points"', () => {
+      expect($(element).find('[rel=points-button]').text()).to.equal('Points');
+    });
   });
 });
