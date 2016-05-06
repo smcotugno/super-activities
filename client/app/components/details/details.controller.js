@@ -1,4 +1,8 @@
 let DetailsController = ($scope, $state) => {
+  $scope.isCurrent = false;
+  $scope.start = function start() {
+      $scope.isCurrent = true;
+  };
   $scope.cancel = function cancel() {
     $state.go('home');
   };

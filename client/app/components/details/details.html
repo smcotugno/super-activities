@@ -12,9 +12,9 @@
           <h4>Point Value</h4>
         </md-card-content>
         <md-card-actions layout="column">
-          <md-button class="md-raised md-primary" rel="start">Start</md-button>
-          <md-button class="md-raised" rel="done" ng-click="done()">Done</md-button>
-          <md-button class="md-raised md-warn" rel="cancel" ng-click="cancel()">Cancel</md-button>
+          <md-button ng-disabled="isCurrent" class="md-raised md-primary" rel="start" ng-click="start()">Start</md-button>
+          <md-button ng-disabled="!isCurrent" class="md-raised" rel="done" ng-click="done()">Done</md-button>
+          <md-button ng-disabled="!isCurrent" class="md-raised md-warn" rel="cancel" ng-click="cancel()">Cancel</md-button>
         </md-card-actions>
       </md-card>
     </div>
