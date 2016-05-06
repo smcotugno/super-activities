@@ -132,5 +132,62 @@ describe('details page', () => {
         resetButtons();
       });
     });
+
+    describe('activity detail should display', () => {
+      it('title', () => {
+        let title = $(element).find('[rel = title]');
+        $scope.$apply();
+        expect(title.text().length).gt(0);
+      });
+
+      it('description', () => {
+        let description = $(element).find('[rel = description]');
+        $scope.$apply();
+        expect(description.text().length).gt(0);
+      });
+
+      it('points', () => {
+        let points = $(element).find('[rel = points]');
+        $scope.$apply();
+        expect(points.text().length).gt(0);
+      });
+    });
+
+    describe('set the state of the current activity', () => {
+      it('to active when the start button is clicked', () => {
+        // arrange ...
+        let scope = element.isolateScope();
+        expect(scope.currentActivity.isActive).to.equal(false);
+
+        // act ...
+        startButton.click();
+        $scope.$apply();
+
+        // assert ...
+        expect(scope.currentActivity.isActive).to.equal(true);
+      });
+
+      it('to active when the start button is clicked', () => {
+        // arrange ...
+        let scope = element.isolateScope();
+        td.replace($state, 'go');
+        startButton.click();
+        doneButton.click();
+        $scope.$apply();
+
+        expect(scope.currentActivity.isActive).to.equal(false);
+      });
+
+      it('to active when the start button is clicked', () => {
+        // arrange ...
+        let scope = element.isolateScope();
+        td.replace($state, 'go');
+        startButton.click();
+        cancelButton.click();
+        $scope.$apply();
+
+        expect(scope.currentActivity.isActive).to.equal(false);
+      });
+    });
   });
 });

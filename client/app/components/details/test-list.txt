@@ -3,16 +3,19 @@
 //Should have a description: Contents of activity record.
 //Should have some point value from activity record: display at top right?
 //Button for start event
-//Start button marks event in progress
-//Start Event should allow other buttons
-//Done Button
-//Done should enable re-start.
-//Done clears current activity.
-//Done should disable done and cancel button
+//Button for done event
+//Button for cancel event
+
+//Start should enable other buttons when clicked
+
 //Done should go to Points page
-//Cancel Button
-//Cancel should disable done
-//Cancel should enable start
-//Cancel should go to Home page
-//Cancel should clear current activity.
-Done should post points to app
+//Done should reset all buttons.
+
+//Cancel should go to home page
+//Cancel should reset all buttons
+
+̌√ display activity
+̌√ when start button is clicked set current activity to active
+√ when done button is clicked set current activity to not active
+√ when cancel button is clicked set current activity to not active
+
