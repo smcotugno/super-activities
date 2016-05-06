@@ -1,33 +1,78 @@
+function theCurrentActivity() {
+  let currentActivity = {
+    name: '',
+    description: '',
+    points: 0
+  };
+
+  let isActive = false;
+
+  return {
+    set: function(theActivity) {
+      currentActivity = theActivity;
+    },
+    setActive: function() {
+      isActive = true;
+    },
+    setInActive: function() {
+      isActive = false;
+    },
+    isActive: function() {
+      return isActive;
+    },
+    isNotActive: function() {
+      return (!isActive);
+    },
+    name: function() {
+      return currentActivity.name;
+    },
+    description: function() {
+      return currentActivity.description;
+    },
+    points: function() {
+      return currentActivity.points;
+    }
+  };
+}
 
 let ActivityController = ($scope, $state) => {
-  $scope.activity = 'Basketball';
-  $scope.points = 50;
 
-  $scope.activity2 = 'Baseball';
-  $scope.points2 = 40;
+  $scope.myActivity = theCurrentActivity();
 
-  $scope.goToActivityDetails = function goToActivityDetails() {
+  $scope.sampleActivity1 = {
+    name: 'Basketball',
+    description: 'This is a description of Basketball',
+    points: 50
+  };
+
+  $scope.sampleActivity2 = {
+    name: 'Baseball',
+    description: 'This is a description of Baseball',
+    points: 40
+  };
+
+  $scope.goToActivityDetails = function goToActivityDetails(num) {
      // populate object
+    if ( num === 1 ) {
+      $scope.myActivity.set($scope.sampleActivity1);
+    } else {
+      $scope.myActivity.set($scope.sampleActivity2);
+    }
     $state.go('details');
   };
 
   $scope.goToPoints = function goToPoints() {
-    // populate object
     $state.go('points');
   };
 
   $scope.goToHome = function goToHome() {
-    // populate object
     $state.go('home');
   };
 
-  $scope.isCurrent = function isCurrent() {
-    return false;
-  };
 };
 
 ActivityController.$inject = ['$scope', '$state'];
 
-export {ActivityController};
+export {ActivityController, theCurrentActivity};
 
 
