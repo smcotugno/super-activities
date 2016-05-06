@@ -4,16 +4,16 @@
 //Should have some point value from activity record: display at top right?
 //Button for start event
 Start button marks event in progress
-Start Event should allow other buttons
+//Start Event should allow other buttons
 //Done Button
-Done should enable re-start.
+//Done should enable re-start.
 Done should post points to app
 Done clears current activity.
-Done should disable done and cancel button
+//Done should disable done and cancel button
 //Done should go to Points page
 //Cancel Button
-Cancel should disable done
-Cancel should enable start
+//Cancel should disable done
+//Cancel should enable start
 Cancel should clear current activity.
 //Cancel should go to Home page
 
