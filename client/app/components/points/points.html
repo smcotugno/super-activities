@@ -1,4 +1,4 @@
-<div>
+<div class = "current-points">
   <md-toolbar>
     <div class = "md-toolbar-tools">
       <md-button aria-label = "HOME" rel = "home-button"
@@ -12,22 +12,34 @@
     </div>
   </md-toolbar>
 
+
+  <md-card-title>
+    <md-card-title-text>
+
+      <i class = "material-icons">face</i>
+
+    </md-card-title-text>
+
+
+    <md-card-title-media>
+      <div class = "md-media-md card-media"></div>
+    </md-card-title-media>
+  </md-card-title>
+
   <md-content>
     <md-card>
       <md-card-title>
         <md-card-title-text>
-          <div class = "current-points">
+
             <span class = "md-headline"
                   rel = "current-points">Current Points</span>
-          </div>
+
           <div class = "total-points">
-            <span class = "md-subhead" rel = "total-points">TOTAL POINTS</span>
+
+            <span class = "md-subhead" rel = "total-points">TOTAL POINTS:  </span>
             <span>{{totalPoints}}</span>
           </div>
-
         </md-card-title-text>
-
-        <i class = "material-icons">face</i>
 
         <md-card-title-media>
           <div class = "md-media-md card-media"></div>
@@ -38,12 +50,12 @@
         <md-card-title-text>
           <div class = "last-activity">
             <span class = "md-headline"
-                  rel="last-activity">Last Activity:</span>
+                  rel="last-activity">Last Activity:  </span>
             <span>{{lastActivity.activity}}</span>
           </div>
           <div class = "points-earned">
             <span class = "md-subhead"
-                  rel = "points-earned">Points Earned:</span>
+                  rel = "points-earned">Points Earned:  </span>
             <span>{{lastActivity.points}}</span>
           </div>
         </md-card-title-text>
