@@ -51,8 +51,12 @@ describe('details page', () => {
 
     describe('Start button should', () => {
        it('Mark the activity as in-progress', () =>{
-
+         //We need: More functionality on Start: Marks the activity from list
+         //as an active ability.
+         //Might be able to do this by meddling with the isCurrent flag in the
+         //controller - J
          //TODO: Figure this out
+         //check that our activity is active.
          //expect(true).to.equal(false);
        });
 
@@ -79,24 +83,43 @@ describe('details page', () => {
       });
 
       it('log the activity', () => {
-
+         //We need: An active activity, and some way to add that to the log
+        //Add stuff to Done button for that.
         //TODO: Figure this out
+        //Check the log for that active activity after doing button presses
+        // for "Start" and "Done"
         //expect(true).to.equal(false);
       });
 
       it('Clear current activity', () => {
-
+        //More functionality to the "Done" and "Cancel" buttons to clear
+        //the active activity.
         //TODO: Figure this out
+        //check that the active activity is blank or null or whatever.
         //expect(true).to.equal(false);
       });
 
       it('Disable cancel and done buttons', () => {
-        //td.replace($state, 'go');
-        //$(element).find('[rel = start]').click();
-        //$(element).find('[rel = done]').click();
+        //When we don't have an active activity, these buttons shouldn't work, right?
+        td.replace($state, 'go');
+        $(element).find('[rel = start]').click();
+        $(element).find('[rel = done]').click();
 
         //TODO: Figure this out
-        //expect($(element).find('[rel = done]').is('disabled')).to.equal(true);
+        //Check that the buttons don't work...? This might not be needed.
+        //Might need to re-think this test - J
+        expect($(element).find('[rel = done]').is(':disabled')).to.equal(true);
+      });
+
+      it('enable restart', () => {
+        //When we don't have an active activity, Start should work
+        td.replace($state, 'go');
+        $(element).find('[rel = start]').click();
+        $(element).find('[rel = done]').click();
+
+        //TODO: Figure this out
+        //Might need to re-think this test - J
+        expect($(element).find('[rel = start]').is(':disabled')).to.equal(false);
       });
     });
 
@@ -115,20 +138,34 @@ describe('details page', () => {
       });
 
       it('Enable start button', () => {
+        //if we don't have an active activity, the start button should be active.
+        //Maybe integrate this test with other similar tests?
+        //Buttons currently work with a straight boolean - Probably re-work into
+        //referencing the active activity
+
+        td.replace($state, 'go');
+        $(element).find('[rel = start]').click();
+        $(element).find('[rel = cancel]').click();
 
         //TODO: Figure this out
-        //expect(true).to.equal(false);
+        //Check button status
+        expect($(element).find('[rel = start]').is(':disabled')).to.equal(false);
       });
 
       it('disable done and cancel button', () => {
+        //If we don't have an active activity, these buttons shouldn't be active.
+         td.replace($state, 'go');
+        $(element).find('[rel = start]').click();
+        $(element).find('[rel = cancel]').click();
 
         //TODO: Figure this out
-        //expect(true).to.equal(false);
+        expect($(element).find('[rel = cancel]').is(':disabled')).to.equal(true);
       });
 
       it('Clear current activity', () => {
-
+         //Cancelling the active activity should clear it.
         //TODO: Figure this out
+        //Check active activity status
         //expect(true).to.equal(false);
       });
     });
