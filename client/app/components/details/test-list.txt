@@ -4,7 +4,7 @@
 //Should have some point value from activity record: display at top right?
 //Button for start event
 Start button marks event in progress
-Start Event should allow other buttons
+//Start Event should allow other buttons
 //Done Button
 Done should enable re-start.
 Done should post points to app

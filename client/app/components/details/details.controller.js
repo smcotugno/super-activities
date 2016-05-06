@@ -4,10 +4,12 @@ let DetailsController = ($scope, $state) => {
       $scope.isCurrent = true;
   };
   $scope.cancel = function cancel() {
+    $scope.isCurrent = false;
     $state.go('home');
   };
 
   $scope.done = function done() {
+    $scope.isCurrent = false;
     $state.go('points');
   };
 };

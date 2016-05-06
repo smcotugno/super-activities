@@ -57,9 +57,10 @@ describe('details page', () => {
        });
 
       it('enable other buttons', () =>{
+        td.replace($state, 'go');
+        $(element).find('[rel=start]').click();
 
-         //TODO: Figure this out
-         //expect(true).to.equal(false);
+        expect($(element).find('[rel=cancel]').is('disabled')).to.equal(false);
        });
     });
 
@@ -90,9 +91,12 @@ describe('details page', () => {
       });
 
       it('Disable cancel and done buttons', () => {
+        //td.replace($state, 'go');
+        //$(element).find('[rel = start]').click();
+        //$(element).find('[rel = done]').click();
 
         //TODO: Figure this out
-        //expect(true).to.equal(false);
+        //expect($(element).find('[rel = done]').is('disabled')).to.equal(true);
       });
     });
 
