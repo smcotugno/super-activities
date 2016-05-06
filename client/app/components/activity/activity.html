@@ -34,7 +34,8 @@
                   layout-align="center">
       <p><h2>{{sampleActivity1.name}}</h2></p>
       <p><h2>{{sampleActivity1.points}}</h2></p>
-      <md-button class="md-secondary" ng-click = "goToActivityDetails(1)" rel="details-button">
+      <md-button class="md-secondary" ng-click = "goToActivityDetails(1)"
+                 aria-label = "activity-item" rel="details-button">
       </md-button>
     </md-list-item>
 
@@ -42,8 +43,28 @@
                   layout-align="center">
       <p><h2>{{sampleActivity2.name}}</h2></p>
       <p><h2>{{sampleActivity2.points}}</h2></p>
-      <md-button class="md-secondary" ng-click = "goToActivityDetails(2)" rel="details-button">
+      <md-button class="md-secondary" ng-click = "goToActivityDetails(2)"
+                 aria-label = "activity-item" rel="details-button">
       </md-button>
     </md-list-item>
   </md-list>
+
+
+  <ul>
+    <li ng-repeat="x in myData">
+      {{ x.name + ', ' + x.points }}
+    </li>
+  </ul>
+
+  <script>
+    var app = angular.module('activity', []);
+    app.controller('activity', function($scope, $http) {
+      $http.get("db.json").then(function (response) {
+        $scope.myData = response.data.records;
+      });
+    });
+  </script>
 </div>
+
+
+

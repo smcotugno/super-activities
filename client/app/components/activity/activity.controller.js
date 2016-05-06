@@ -1,43 +1,6 @@
-function theCurrentActivity() {
-  let currentActivity = {
-    name: '',
-    description: '',
-    points: 0
-  };
+let ActivityController = ($scope, $state, theCurrentActivity) => {
 
-  let isActive = false;
-
-  return {
-    set: function(theActivity) {
-      currentActivity = theActivity;
-    },
-    setActive: function() {
-      isActive = true;
-    },
-    setInActive: function() {
-      isActive = false;
-    },
-    isActive: function() {
-      return isActive;
-    },
-    isNotActive: function() {
-      return (!isActive);
-    },
-    name: function() {
-      return currentActivity.name;
-    },
-    description: function() {
-      return currentActivity.description;
-    },
-    points: function() {
-      return currentActivity.points;
-    }
-  };
-}
-
-let ActivityController = ($scope, $state) => {
-
-  $scope.myActivity = theCurrentActivity();
+$scope.myActivity = theCurrentActivity;
 
   $scope.sampleActivity1 = {
     name: 'Basketball',
@@ -71,8 +34,8 @@ let ActivityController = ($scope, $state) => {
 
 };
 
-ActivityController.$inject = ['$scope', '$state'];
+ActivityController.$inject = ['$scope', '$state', 'theCurrentActivity'];
 
-export {ActivityController, theCurrentActivity};
+export {ActivityController};
 
 
