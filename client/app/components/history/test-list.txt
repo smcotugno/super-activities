@@ -5,9 +5,8 @@
 √ column heading with Date/Time Completed
 √ column heading with Activity
 √ column heading with Points
- a row has: 2016/05/05 - go fly a kite - 25
 get log
 get latest activity date
 get latest activity activity
 get latest activity points
-the point amount after "Total Points: "
+the point amount is a number after "Total Points: "

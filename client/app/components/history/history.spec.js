@@ -56,18 +56,6 @@ describe('history page', () => {
       expect($(element).find('[rel=points]').text()).to.equal('Points');
     });
 
-    it('a row has: 2016/05/05 - go fly a kite - 25', () => {
-      //var list = $(element).find('[rel=log]').text().trim();
-      //console.log(list);
-      //var arr = list.split('\n');
-      //arr.forEach(function(el, index){
-      //  arr[index] = el.trim();
-      //  if(arr[index].length <= 0) arr.splice(index,1);
-      //});
-      //console.log(arr);
-      //expect(arr).to.deep.equal(['2016/05/05', 'go fly a kite', '25']);
-    });
-
     it('the point amount after "Total Points: "', () => {
       //expect($(element).find('[rel=total-points]').text()).to.equal('75');
     });

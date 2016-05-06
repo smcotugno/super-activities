@@ -45,7 +45,7 @@ describe('points page', () => {
     });
 
       it('test for last activity', () => {
-      expect($(element).find('[rel=last-activity]').text()).to.equal('Last Activity:');
+      expect($(element).find('[rel=last-activity]').text()).to.equal('Last Activity:  ');
     });
 
   });

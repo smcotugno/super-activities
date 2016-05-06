@@ -10,7 +10,7 @@ export const history = angular.module('history', [
   ngAnimate,
   ngAria,
   ngMaterial,
-    shared.name
+  shared.name
 ])
 
 .config( ($stateProvider) => {
