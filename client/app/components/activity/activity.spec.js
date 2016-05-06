@@ -1,6 +1,7 @@
 import {describe, beforeEach, expect, it} from '../test-helper';
 import 'script!jquery/dist/jquery';
 import angular from 'angular';
+import td from 'testdouble';
 
 import {activity} from './activity';
 
@@ -31,20 +32,52 @@ describe('activity page', () => {
       expect($state.current.url).to.equal('/activity');
     });
 
-    it('a title called hello activity', () => {
+    it('a title called activity list', () => {
       expect($(element).find('[rel=title]').text()).to.equal('Activity List');
     });
 
-    it('activity name basketball', () => {
+    it('a single activity called basketball', () => {
       $scope.$apply();
       let scope = element.isolateScope();
       expect(scope.activity).to.equal('Basketball');
     });
 
-    it('basketball points', () => {
+    it('points for basketball activity', () => {
       $scope.$apply();
       let scope = element.isolateScope();
       expect(scope.points).to.equal(50);
+    });
+
+    it('go to details page from an activity in the list', () => {
+      td.replace($state, 'go');
+      $(element).find('[rel=details-button]').click();
+      $scope.$apply();
+      td.verify($state.go('details'));
+      td.reset();
+    });
+
+    it('go to current activity details page ', () => {
+      td.replace($state, 'go');
+      $(element).find('[rel=current-button]').click();
+      $scope.$apply();
+      td.verify($state.go('details'));
+      td.reset();
+    });
+
+    it('go to points page', () => {
+      td.replace($state, 'go');
+      $(element).find('[rel=points-button]').click();
+      $scope.$apply();
+      td.verify($state.go('points'));
+      td.reset();
+    });
+
+    it('go to home page', () => {
+      td.replace($state, 'go');
+      $(element).find('[rel=home-button]').click();
+      $scope.$apply();
+      td.verify($state.go('home'));
+      td.reset();
     });
 
   });
