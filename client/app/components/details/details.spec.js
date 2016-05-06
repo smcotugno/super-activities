@@ -33,16 +33,16 @@ describe('details page', () => {
     });
 
     it('a title: Activity Name', () => {
-      expect($(element).find('h1').text()).to.equal('Activity name');
+      expect($(element).find('h1').text()).to.equal('Basketball');
     });
 
     it('Some text: the activity description', () => {
-      expect($(element).find('h2').text()).to.equal('Description');
+      expect($(element).find('h2').text()).to.equal('Ball, Hoop, Court');
     });
 
 
   it('Some text: the point value', () => {
-    expect($(element).find('h4').text()).to.equal('Point Value');
+    expect($(element).find('h4').text()).to.equal('40');
   });
 
     it('Button: Start', () => {
@@ -55,16 +55,21 @@ describe('details page', () => {
          //as an active ability.
          //Might be able to do this by meddling with the isCurrent flag in the
          //controller - J
+         $(element).find('[rel=start]').click();
+         $scope.$apply();
+         let scope = element.isolateScope();
+
          //TODO: Figure this out
          //check that our activity is active.
-         //expect(true).to.equal(false);
+         console.log(scope);
+         expect(scope.currentActivity.isCurrent).to.equal(true);
        });
 
       it('enable other buttons', () =>{
         td.replace($state, 'go');
         $(element).find('[rel=start]').click();
 
-        expect($(element).find('[rel=cancel]').is('disabled')).to.equal(false);
+        expect($(element).find('[rel=cancel]').is(':disabled')).to.equal(false);
        });
     });
 
@@ -84,6 +89,7 @@ describe('details page', () => {
 
       it('log the activity', () => {
          //We need: An active activity, and some way to add that to the log
+        //Probably an array.push or something.
         //Add stuff to Done button for that.
         //TODO: Figure this out
         //Check the log for that active activity after doing button presses
@@ -94,9 +100,15 @@ describe('details page', () => {
       it('Clear current activity', () => {
         //More functionality to the "Done" and "Cancel" buttons to clear
         //the active activity.
+        td.replace($state, 'go');
+        $(element).find('[rel=start]').click();
+        $(element).find('[rel=done]').click();
+        $scope.$apply();
+
+        let scope = element.isolateScope();
         //TODO: Figure this out
         //check that the active activity is blank or null or whatever.
-        //expect(true).to.equal(false);
+        expect(scope.currentActivity.isCurrent).to.equal(false);
       });
 
       it('Disable cancel and done buttons', () => {
