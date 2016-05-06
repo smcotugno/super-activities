@@ -1,0 +1,8 @@
+√ a url called /points
+√ a title called hello points
+√ test home button to go to home
+√ test for current points
+√ test for last activity
+√ test for total points
+√ test for previous points
+

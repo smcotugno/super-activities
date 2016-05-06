@@ -44,8 +44,8 @@ describe('home page', () => {
       expect($(element).find('[rel=points-button]').text()).to.equal('Points');
     });
 
-    it('a button labeled "Activity Log"', () => {
-      expect($(element).find('[rel=log-button]').text()).to.equal('Activity Log');
+    it('a button labeled "Activity History"', () => {
+      expect($(element).find('[rel=log-button]').text()).to.equal('Activity History');
     });
   });
 

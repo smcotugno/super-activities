@@ -8,6 +8,9 @@ should have
 √  go to current activity details page
 √  go to points page
 √  go to home page
+√   current activity button is disabled by default
+√   current activity button is disabled when activity is cancelled or completed
+√   current activity button is enabled when activity is started
 
   a canned activity
   list of canned activities

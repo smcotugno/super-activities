@@ -21,3 +21,4 @@ export const activity = angular.module('activity', [
 })
 
 .directive('activity', activityDirective);
+

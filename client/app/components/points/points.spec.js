@@ -32,16 +32,20 @@ describe('points page', () => {
       expect($state.current.url).to.equal('/points');
     });
 
-    it('a title called hello points', () => {
-      expect($(element).find('h1').text()).to.equal(' ');
-    });
-
     it('test home button to go to home', () => {
       td.replace($state, 'go');
       $(element).find('[rel=home-button]').click();
       $scope.$apply();
       td.verify($state.go('home'));
       td.reset();
+    });
+
+    it('test for current points', () => {
+      expect($(element).find('[rel=current-points]').text()).to.equal('Current Points');
+    });
+
+      it('test for last activity', () => {
+      expect($(element).find('[rel=last-activity]').text()).to.equal('Last Activity:');
     });
 
   });
