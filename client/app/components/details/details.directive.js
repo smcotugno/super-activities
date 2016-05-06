@@ -1,10 +1,10 @@
 import template from './details.html';
-//import {DetailsController as controller} from './details.controller.js';
+import {DetailsController as controller} from './details.controller.js';
 
 export const detailsDirective = ()=> {
   return {
     template,
-    //controller,
+    controller,
     restrict: 'E',
     replace: true,
     scope: {}
