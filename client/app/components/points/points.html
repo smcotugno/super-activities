@@ -12,7 +12,7 @@
   </md-toolbar>
 
 
-  <i class="material-icons">face</i>
+
 
 
   <md-content>
@@ -20,14 +20,16 @@
     <md-card>
       <md-card-title>
         <md-card-title-text>
-          <div class = "absolute">
-            <span class = "md-headline">Current Points</span>
+          <div class = "current-points">
+            <span class = "md-headline" rel="current-points">Current Points</span>
           </div>
-          <div class = "absolute">
-          <span class = "md-subhead">TOTAL POINTS:</span>
+          <div class = "total-points">
+          <span class = "md-subhead"  rel="total-points">TOTAL POINTS</span>
           </div>
 
         </md-card-title-text>
+
+        <i class="material-icons">face</i>
 
         <md-card-title-media>
           <div class = "md-media-md card-media"></div>
@@ -36,13 +38,13 @@
 
       <md-card-title>
         <md-card-title-text>
-          <div class = "absolute">
-          <span class = "md-headline">Last Activity</span>
+          <div class = "last-activity">
+          <span class = "md-headline"  rel="last-activity">Last Activity</span>
           </div>
-          <div class = "absolute">
-          <span class = "md-subhead">Points Earned:</span>
-            <div class = "absolute">
-          <span class = "md-subhead">Previous Point Total:</span>
+          <div class = "points-earned">
+          <span class = "md-subhead"  rel="points-earned">Points Earned:</span>
+            <div class = "previous-points">
+          <span class = "md-subhead"  rel="previous-points">Previous Point Total</span>
             </div>
           </div>
         </md-card-title-text>
@@ -56,7 +58,8 @@
   <style>
 
 
-    div.absolute {
+    div.current-points
+    {
       text-align: center;
     }
   </style>
