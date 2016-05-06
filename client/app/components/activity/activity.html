@@ -12,7 +12,7 @@
       <md-button class = "md-raised"
                  ng-click = "goToActivityDetails()"
                  aria-label = "Current Activity"
-                 rel="current-button">
+                 rel="current-button" ng-disabled="myActivity.isNotActive()">
         Current Activity
       </md-button>
       <md-button class = "md-icon-button"
@@ -32,17 +32,17 @@
 
     <md-list-item class="secondary-button-padding" ng-click = "goToActivityDetails()"
                   layout-align="center">
-      <p><h2>{{activity}}</h2></p>
-      <p><h2>{{points}}</h2></p>
-      <md-button class="md-secondary" ng-click = "goToActivityDetails()" rel="details-button">
+      <p><h2>{{sampleActivity1.name}}</h2></p>
+      <p><h2>{{sampleActivity1.points}}</h2></p>
+      <md-button class="md-secondary" ng-click = "goToActivityDetails(1)" rel="details-button">
       </md-button>
     </md-list-item>
 
     <md-list-item class="secondary-button-padding" ng-click = "goToActivityDetails()"
                   layout-align="center">
-      <p><h2>{{activity2}}</h2></p>
-      <p><h2>{{points2}}</h2></p>
-      <md-button class="md-secondary" ng-click = "goToActivityDetails()" rel="details-button">
+      <p><h2>{{sampleActivity2.name}}</h2></p>
+      <p><h2>{{sampleActivity2.points}}</h2></p>
+      <md-button class="md-secondary" ng-click = "goToActivityDetails(2)" rel="details-button">
       </md-button>
     </md-list-item>
   </md-list>

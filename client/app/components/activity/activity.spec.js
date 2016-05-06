@@ -39,13 +39,13 @@ describe('activity page', () => {
     it('a single activity called basketball', () => {
       $scope.$apply();
       let scope = element.isolateScope();
-      expect(scope.activity).to.equal('Basketball');
+      expect(scope.sampleActivity1.name).to.equal('Basketball');
     });
 
     it('points for basketball activity', () => {
       $scope.$apply();
       let scope = element.isolateScope();
-      expect(scope.points).to.equal(50);
+      expect(scope.sampleActivity1.points).to.equal(50);
     });
 
     it('go to details page from an activity in the list', () => {
@@ -57,6 +57,9 @@ describe('activity page', () => {
     });
 
     it('go to current activity details page ', () => {
+      let scope = element.isolateScope();
+      scope.myActivity.setActive();
+      $scope.$apply();
       td.replace($state, 'go');
       $(element).find('[rel=current-button]').click();
       $scope.$apply();
@@ -78,6 +81,24 @@ describe('activity page', () => {
       $scope.$apply();
       td.verify($state.go('home'));
       td.reset();
+    });
+
+    it('current activity button is disabled by default', () => {
+      expect($(element).find('[rel=current-button]').is(':disabled')).to.equal(true);
+     });
+
+    it('current activity button is disabled when activity is cancelled or completed', () => {
+      let scope = element.isolateScope();
+      scope.myActivity.setInActive();
+      $scope.$apply();
+      expect($(element).find('[rel=current-button]').is(':disabled')).to.equal(scope.myActivity.isNotActive());
+    });
+
+    it('current activity button is enabled when activity is started', () => {
+      let scope = element.isolateScope();
+      scope.myActivity.setActive();
+      $scope.$apply();
+      expect(!$(element).find('[rel=current-button]').is(':disabled')).to.equal(scope.myActivity.isActive());
     });
 
   });
