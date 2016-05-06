@@ -46,20 +46,20 @@ describe('details page', () => {
       expect($state.current.url).to.equal('/details');
     });
 
-    it('a title: Basketball', () => {
+    it('an empty default title', () => {
       const title = $(element).find('h1');
-      expect(title.text()).to.equal('Basketball');
+      expect(title.text()).to.equal('');
     });
 
-    it('an activity description: Ball, Hoop, Court', () => {
+    it('an empty default description', () => {
       const description = $(element).find('h2');
-      expect(description.text()).to.equal('Ball, Hoop, Court');
+      expect(description.text()).to.equal('');
     });
 
 
-    it('the point value: 40', () => {
+    it('an empty default for points', () => {
       const points = $(element).find('h4');
-      expect(points.text()).to.equal('40');
+      expect(points.text()).to.equal('0');
     });
 
     it('a Start button', () => {
@@ -133,38 +133,18 @@ describe('details page', () => {
       });
     });
 
-    describe('activity detail should display', () => {
-      it('title', () => {
-        let title = $(element).find('[rel = title]');
-        $scope.$apply();
-        expect(title.text().length).gt(0);
-      });
-
-      it('description', () => {
-        let description = $(element).find('[rel = description]');
-        $scope.$apply();
-        expect(description.text().length).gt(0);
-      });
-
-      it('points', () => {
-        let points = $(element).find('[rel = points]');
-        $scope.$apply();
-        expect(points.text().length).gt(0);
-      });
-    });
-
     describe('set the state of the current activity', () => {
       it('to active when the start button is clicked', () => {
         // arrange ...
         let scope = element.isolateScope();
-        expect(scope.currentActivity.isActive).to.equal(false);
+        expect(scope.currentActivity.isActive()).to.equal(false);
 
         // act ...
         startButton.click();
         $scope.$apply();
 
         // assert ...
-        expect(scope.currentActivity.isActive).to.equal(true);
+        expect(scope.currentActivity.isActive()).to.equal(true);
       });
 
       it('to active when the start button is clicked', () => {
@@ -175,7 +155,7 @@ describe('details page', () => {
         doneButton.click();
         $scope.$apply();
 
-        expect(scope.currentActivity.isActive).to.equal(false);
+        expect(scope.currentActivity.isActive()).to.equal(false);
       });
 
       it('to active when the start button is clicked', () => {
@@ -186,7 +166,7 @@ describe('details page', () => {
         cancelButton.click();
         $scope.$apply();
 
-        expect(scope.currentActivity.isActive).to.equal(false);
+        expect(scope.currentActivity.isActive()).to.equal(false);
       });
     });
   });

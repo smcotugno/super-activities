@@ -1,4 +1,5 @@
 import angular from 'angular';
+import {shared} from '../../shared/shared';
 import {detailsDirective} from './details.directive.js';
 
 import ngAnimate from 'angular-animate';
@@ -8,7 +9,9 @@ import ngMaterial from 'angular-material';
 export const details = angular.module('details', [
   ngAnimate,
   ngAria,
-  ngMaterial
+  ngMaterial,
+
+  shared.name
 ])
 
 .config( ($stateProvider) => {
