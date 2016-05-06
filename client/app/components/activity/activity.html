@@ -1,36 +1,49 @@
 <div>
   <md-toolbar>
     <div class = "md-toolbar-tools">
-      <md-button aria-label = "Home">
+      <md-button aria-label = "Home" ng-click = "goToHome()"
+                 rel="home-button">
         Home
       </md-button>
       <h1>
         <span rel="title">Activity List</span>
       </h1>
       <span flex = ""></span>
-      <md-button class = "md-raised" aria-label = "Current Activity">
+      <md-button class = "md-raised"
+                 ng-click = "goToActivityDetails()"
+                 aria-label = "Current Activity"
+                 rel="current-button">
         Current Activity
       </md-button>
-      <md-button class = "md-icon-button" style = "color: green;"
-                 aria-label = "Points">
+      <md-button class = "md-icon-button"
+                 aria-label = "Points"
+                 ng-click = "goToPoints()"
+                 rel="points-button">
         <i class = "material-icons" style = "color: gold;">attach_money</i>
       </md-button>
     </div>
   </md-toolbar>
 
   <md-list>
-    <md-list-item class = "secondary-button-padding">
-      <table cellspacing="25">
-      <tr>
-      <td><h3>{{activity}}</h3></td>
-      <td><h3>{{points}}</h3></td>
-        <td>
-          <md-button class = "md-secondary" ng-click = "doSecondaryAction($event)">
-            Details
-          </md-button>
-        </td>
-      </tr>
-      </table>
+    <md-list-item class="" layout-align="center">
+      <p><h1>Activity</h1></p>
+      <p><h1>Points</h1></p>
+    </md-list-item>
+
+    <md-list-item class="secondary-button-padding" ng-click = "goToActivityDetails()"
+                  layout-align="center">
+      <p><h2>{{activity}}</h2></p>
+      <p><h2>{{points}}</h2></p>
+      <md-button class="md-secondary" ng-click = "goToActivityDetails()" rel="details-button">
+      </md-button>
+    </md-list-item>
+
+    <md-list-item class="secondary-button-padding" ng-click = "goToActivityDetails()"
+                  layout-align="center">
+      <p><h2>{{activity2}}</h2></p>
+      <p><h2>{{points2}}</h2></p>
+      <md-button class="md-secondary" ng-click = "goToActivityDetails()" rel="details-button">
+      </md-button>
     </md-list-item>
   </md-list>
 </div>

@@ -1,7 +1,14 @@
 should have
 √  a url called /activity
 √  a title called activity list
-√   a single activity called basketball
+√  a single activity called basketball
+√  points for basketball activity
+
+√  go to details page from an activity in the list
+√  go to current activity details page
+√  go to points page
+√  go to home page
+
   a canned activity
   list of canned activities
   indicator top right for current activity
