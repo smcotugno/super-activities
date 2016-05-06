@@ -1,0 +1,19 @@
+{
+  "activities": [
+    {
+      "date": "2016/05/05",
+      "name": "go fly a kite",
+      "points": 25
+    },
+    {
+      "date": "2016/05/03",
+      "name": "go play with hoop and ball on blacktop",
+      "points": 50
+    },
+    {
+      "date": "2016/04/28",
+      "name": "go jump in lake",
+      "points": 10
+    }
+  ]
+}
