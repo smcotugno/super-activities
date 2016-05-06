@@ -5,7 +5,7 @@ let HistoryController = ($scope, $state, activityHistory) => {
     $state.go(state);
   };
 
-
+  $scope.test = true;
   $scope.log = activityHistory.log;
 
   /*

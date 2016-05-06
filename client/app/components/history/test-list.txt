@@ -5,6 +5,7 @@
 √ column heading with Date/Time Completed
 √ column heading with Activity
 √ column heading with Points
+ a row has: 2016-05-04 16:30 - Go jump in the lake - 100
 get log
 get latest activity date
 get latest activity activity
