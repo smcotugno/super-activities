@@ -11,6 +11,10 @@ describe('details page', () => {
   let $state;
   let $scope;
 
+  let startButton;
+  let cancelButton;
+  let doneButton;
+
   let buildTemplate = () => {
     return angular.element('<details></details>');
   };
@@ -23,7 +27,17 @@ describe('details page', () => {
     $scope = $rootScope.$new();
     element = $compile(buildTemplate())($scope);
     $scope.$digest();
+    startButton = $(element).find('[rel = start]');
+    cancelButton = $(element).find('[rel = cancel]');
+    doneButton = $(element).find('[rel = done]');
+
   }));
+
+  function resetButtons() {
+    expect(cancelButton.is(':disabled')).to.equal(true);
+    expect(doneButton.is(':disabled')).to.equal(true);
+    expect(startButton.is(':disabled')).to.equal(false);
+  }
 
   describe('should have', () => {
     it('a url called /details', () => {
@@ -32,155 +46,91 @@ describe('details page', () => {
       expect($state.current.url).to.equal('/details');
     });
 
-    it('a title: Activity Name', () => {
-      expect($(element).find('h1').text()).to.equal('Basketball');
+    it('a title: Basketball', () => {
+      const title = $(element).find('h1');
+      expect(title.text()).to.equal('Basketball');
     });
 
-    it('Some text: the activity description', () => {
-      expect($(element).find('h2').text()).to.equal('Ball, Hoop, Court');
+    it('an activity description: Ball, Hoop, Court', () => {
+      const description = $(element).find('h2');
+      expect(description.text()).to.equal('Ball, Hoop, Court');
     });
 
 
-  it('Some text: the point value', () => {
-    expect($(element).find('h4').text()).to.equal('40');
-  });
+    it('the point value: 40', () => {
+      const points = $(element).find('h4');
+      expect(points.text()).to.equal('40');
+    });
 
-    it('Button: Start', () => {
-    expect($(element).find('[rel = start]').text()).to.equal('Start');
-  });
+    it('a Start button', () => {
+      expect(startButton.text()).to.include('Start');
+    });
 
-    describe('Start button should', () => {
-       it('Mark the activity as in-progress', () =>{
-         //We need: More functionality on Start: Marks the activity from list
-         //as an active ability.
-         //Might be able to do this by meddling with the isCurrent flag in the
-         //controller - J
-         $(element).find('[rel=start]').click();
-         $scope.$apply();
-         let scope = element.isolateScope();
+    it('a Done button', () => {
+      expect(doneButton.text()).to.include('Done');
+    });
 
-         //TODO: Figure this out
-         //check that our activity is active.
-         console.log(scope);
-         expect(scope.currentActivity.isCurrent).to.equal(true);
-       });
+    it('a Cancel button', () => {
+      expect(cancelButton.text()).to.include('Cancel');
+    });
 
-      it('enable other buttons', () =>{
+    describe('The Start button should', () => {
+      it('enable other buttons when clicked', () => {
+        expect(cancelButton.is(':disabled')).to.equal(true);
+        expect(doneButton.is(':disabled')).to.equal(true);
+
         td.replace($state, 'go');
-        $(element).find('[rel=start]').click();
+        startButton.click();
 
-        expect($(element).find('[rel=cancel]').is(':disabled')).to.equal(false);
-       });
+        expect(cancelButton.is(':disabled')).to.equal(false);
+        expect(doneButton.is(':disabled')).to.equal(false);
+        expect(startButton.is(':disabled')).to.equal(true);
+      });
     });
 
-    it('Button: Done', () => {
-    expect($(element).find('[rel = done]').text()).to.equal('Done');
-  });
-
-    describe('the done button should', () => {
-      it('go points', () => {
+    describe('the Done button should', () => {
+      it('go to the points page', () => {
         td.replace($state, 'go');
-        $(element).find('[rel=start]').click();
-        $(element).find('[rel = done]').click();
+
+        startButton.click();
+        doneButton.click();
         $scope.$apply();
+
         td.verify($state.go('points'));
         td.reset();
       });
 
-      it('log the activity', () => {
-         //We need: An active activity, and some way to add that to the log
-        //Probably an array.push or something.
-        //Add stuff to Done button for that.
-        //TODO: Figure this out
-        //Check the log for that active activity after doing button presses
-        // for "Start" and "Done"
-        //expect(true).to.equal(false);
-      });
-
-      it('Clear current activity', () => {
-        //More functionality to the "Done" and "Cancel" buttons to clear
-        //the active activity.
+      it('reset all buttons', () => {
         td.replace($state, 'go');
-        $(element).find('[rel=start]').click();
-        $(element).find('[rel=done]').click();
+
+        startButton.click();
+        doneButton.click();
         $scope.$apply();
 
-        let scope = element.isolateScope();
-        //TODO: Figure this out
-        //check that the active activity is blank or null or whatever.
-        expect(scope.currentActivity.isCurrent).to.equal(false);
-      });
-
-      it('Disable cancel and done buttons', () => {
-        //When we don't have an active activity, these buttons shouldn't work, right?
-        td.replace($state, 'go');
-        $(element).find('[rel = start]').click();
-        $(element).find('[rel = done]').click();
-
-        //TODO: Figure this out
-        //Check that the buttons don't work...? This might not be needed.
-        //Might need to re-think this test - J
-        expect($(element).find('[rel = done]').is(':disabled')).to.equal(true);
-      });
-
-      it('enable restart', () => {
-        //When we don't have an active activity, Start should work
-        td.replace($state, 'go');
-        $(element).find('[rel = start]').click();
-        $(element).find('[rel = done]').click();
-
-        //TODO: Figure this out
-        //Might need to re-think this test - J
-        expect($(element).find('[rel = start]').is(':disabled')).to.equal(false);
+        resetButtons();
       });
     });
 
-    it('Button: Cancel', () => {
-    expect($(element).find('[rel = cancel]').text()).to.equal('Cancel');
-  });
-
-    describe('cancel button should', () => {
-      it('go home', () => {
+    describe('Cancel button should', () => {
+      it('go to home page', () => {
         td.replace($state, 'go');
-        $(element).find('[rel=start]') .click();
-        $(element).find('[rel = cancel]').click();
+
+        startButton.click();
+        cancelButton.click();
         $scope.$apply();
+
         td.verify($state.go('home'));
         td.reset();
       });
 
       it('Enable start button', () => {
-        //if we don't have an active activity, the start button should be active.
-        //Maybe integrate this test with other similar tests?
-        //Buttons currently work with a straight boolean - Probably re-work into
-        //referencing the active activity
-
         td.replace($state, 'go');
-        $(element).find('[rel = start]').click();
-        $(element).find('[rel = cancel]').click();
 
-        //TODO: Figure this out
-        //Check button status
-        expect($(element).find('[rel = start]').is(':disabled')).to.equal(false);
-      });
-
-      it('disable done and cancel button', () => {
-        //If we don't have an active activity, these buttons shouldn't be active.
-         td.replace($state, 'go');
-        $(element).find('[rel = start]').click();
-        $(element).find('[rel = cancel]').click();
-
-        //TODO: Figure this out
-        expect($(element).find('[rel = cancel]').is(':disabled')).to.equal(true);
-      });
-
-      it('Clear current activity', () => {
-         //Cancelling the active activity should clear it.
-        //TODO: Figure this out
-        //Check active activity status
-        //expect(true).to.equal(false);
+        startButton.click();
+        cancelButton.click();
+        $scope.$apply();
+        resetButtons();
       });
     });
-
-});
+  });
 });
