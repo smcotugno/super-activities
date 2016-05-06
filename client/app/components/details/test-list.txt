@@ -10,9 +10,22 @@ Done should enable re-start.
 Done should post points to app
 Done clears current activity.
 Done should disable done and cancel button
-Done should go to Points page
+//Done should go to Points page
 //Cancel Button
 Cancel should disable done
 Cancel should enable start
 Cancel should clear current activity.
-Cancel should go to Home page
+//Cancel should go to Home page
+
+
+
+
+let ActivityController =($scope, $state)
+  $scope.goToActivity = function goToActivity (){
+     state.go('activity')
+
+
+  }
+  DetailsController.$inject = ['$scope', $state'];
+
+  export {DetailsController};

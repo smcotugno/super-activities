@@ -1,6 +1,7 @@
 import {describe, beforeEach, expect, it} from '../test-helper';
 import 'script!jquery/dist/jquery';
 import angular from 'angular';
+import td from 'testdouble';
 
 import {details} from './details';
 
@@ -48,24 +49,85 @@ describe('details page', () => {
     expect($(element).find('[rel = start]').text()).to.equal('Start');
   });
 
-    /*describe('Start button should', () => {
+    describe('Start button should', () => {
        it('Mark the activity as in-progress', () =>{
-         let someActivity = {
-           inProgress: false
-         };
-         //click Start button: J doesn't know this code.
 
-         //after button click: This should happen
-          expect(someActivity.inProgress).to.equal(true);
+         //TODO: Figure this out
+         //expect(true).to.equal(false);
        });
-    }); */
+
+      it('enable other buttons', () =>{
+
+         //TODO: Figure this out
+         //expect(true).to.equal(false);
+       });
+    });
 
     it('Button: Done', () => {
     expect($(element).find('[rel = done]').text()).to.equal('Done');
   });
 
+    describe('the done button should', () => {
+      it('go points', () => {
+        td.replace($state, 'go');
+        $(element).find('[rel=start]').click();
+        $(element).find('[rel = done]').click();
+        $scope.$apply();
+        td.verify($state.go('points'));
+        td.reset();
+      });
+
+      it('log the activity', () => {
+
+        //TODO: Figure this out
+        //expect(true).to.equal(false);
+      });
+
+      it('Clear current activity', () => {
+
+        //TODO: Figure this out
+        //expect(true).to.equal(false);
+      });
+
+      it('Disable cancel and done buttons', () => {
+
+        //TODO: Figure this out
+        //expect(true).to.equal(false);
+      });
+    });
+
     it('Button: Cancel', () => {
     expect($(element).find('[rel = cancel]').text()).to.equal('Cancel');
   });
+
+    describe('cancel button should', () => {
+      it('go home', () => {
+        td.replace($state, 'go');
+        $(element).find('[rel=start]') .click();
+        $(element).find('[rel = cancel]').click();
+        $scope.$apply();
+        td.verify($state.go('home'));
+        td.reset();
+      });
+
+      it('Enable start button', () => {
+
+        //TODO: Figure this out
+        //expect(true).to.equal(false);
+      });
+
+      it('disable done and cancel button', () => {
+
+        //TODO: Figure this out
+        //expect(true).to.equal(false);
+      });
+
+      it('Clear current activity', () => {
+
+        //TODO: Figure this out
+        //expect(true).to.equal(false);
+      });
+    });
+
 });
 });
