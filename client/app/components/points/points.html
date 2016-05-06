@@ -1,35 +1,33 @@
 <div>
   <md-toolbar>
-    <div class="md-toolbar-tools">
-      <md-button aria-label="HOME" rel="home-button" ng-click="goToHome()">
+    <div class = "md-toolbar-tools">
+      <md-button aria-label = "HOME" rel = "home-button"
+                 ng-click = "goToHome()">
         HOME
       </md-button>
       <h2>
         <span>Points</span>
       </h2>
-      <span flex=""></span>
+      <span flex = ""></span>
     </div>
   </md-toolbar>
 
-
-
-
-
   <md-content>
-
     <md-card>
       <md-card-title>
         <md-card-title-text>
           <div class = "current-points">
-            <span class = "md-headline" rel="current-points">Current Points</span>
+            <span class = "md-headline"
+                  rel = "current-points">Current Points</span>
           </div>
           <div class = "total-points">
-          <span class = "md-subhead"  rel="total-points">TOTAL POINTS</span>
+            <span class = "md-subhead" rel = "total-points">TOTAL POINTS</span>
+            <span>{{totalPoints}}</span>
           </div>
 
         </md-card-title-text>
 
-        <i class="material-icons">face</i>
+        <i class = "material-icons">face</i>
 
         <md-card-title-media>
           <div class = "md-media-md card-media"></div>
@@ -39,13 +37,14 @@
       <md-card-title>
         <md-card-title-text>
           <div class = "last-activity">
-          <span class = "md-headline"  rel="last-activity">Last Activity</span>
+            <span class = "md-headline"
+                  rel="last-activity">Last Activity:</span>
+            <span>{{lastActivity.activity}}</span>
           </div>
           <div class = "points-earned">
-          <span class = "md-subhead"  rel="points-earned">Points Earned:</span>
-            <div class = "previous-points">
-          <span class = "md-subhead"  rel="previous-points">Previous Point Total</span>
-            </div>
+            <span class = "md-subhead"
+                  rel = "points-earned">Points Earned:</span>
+            <span>{{lastActivity.points}}</span>
           </div>
         </md-card-title-text>
         <md-card-title-media>
@@ -54,7 +53,6 @@
       </md-card-title>
     </md-card>
   </md-content>
-  <h1> </h1>
   <style>
 
 

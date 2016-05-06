@@ -32,10 +32,6 @@ describe('points page', () => {
       expect($state.current.url).to.equal('/points');
     });
 
-    it('a title called hello points', () => {
-      expect($(element).find('h1').text()).to.equal(' ');
-    });
-
     it('test home button to go to home', () => {
       td.replace($state, 'go');
       $(element).find('[rel=home-button]').click();
@@ -48,16 +44,9 @@ describe('points page', () => {
       expect($(element).find('[rel=current-points]').text()).to.equal('Current Points');
     });
 
-    it('test for last activity', () => {
-      expect($(element).find('[rel=last-activity]').text()).to.equal('Last Activity');
+      it('test for last activity', () => {
+      expect($(element).find('[rel=last-activity]').text()).to.equal('Last Activity:');
     });
 
-    it('test for total points', () => {
-      expect($(element).find('[rel=total-points]').text()).to.equal('TOTAL POINTS');
-    });
-
-    it('test for previous points', () => {
-      expect($(element).find('[rel=previous-points]').text()).to.equal('Previous Point Total');
-    });
   });
 });
