@@ -1,4 +1,5 @@
 import angular from 'angular';
+import {shared} from '../../shared/shared';
 import {historyDirective} from './history.directive.js';
 
 import ngAnimate from 'angular-animate';
@@ -8,7 +9,8 @@ import ngMaterial from 'angular-material';
 export const history = angular.module('history', [
   ngAnimate,
   ngAria,
-  ngMaterial
+  ngMaterial,
+    shared.name
 ])
 
 .config( ($stateProvider) => {

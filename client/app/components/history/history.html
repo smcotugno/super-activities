@@ -9,22 +9,23 @@
       <span flex = ""></span>
       <h1>
         <span rel="total-points-title">Total Points: </span>
-        <span style="color: yellow;"rel="total-points">{{points}}</span>
+        <span style="color: yellow;"rel="total-points">{{totalPoints}}</span>
       </h1>
     </div>
   </md-toolbar>
 
-  <md-list>
-    <md-list-item class="" layout-align="center">
-      <p><h1 rel='date'>Date/Time Completed</h1></p>
-      <p><h1 rel='activity'>Activity</h1></p>
-      <p><h1 rel='points'>Points</h1></p>
-    </md-list-item>
-    <md-list-item class="secondary-button-padding"
-                  layout-align="center" rel="log" ng-repeat="activity in log.activities">
-      <p><h2 rel="log-date">{{activity.date}} </h2></p>        x
-      <p><h2 rel="log-activity">{{activity.name}}</h2></p>
-      <p><h2 rel="log-points">{{activity.points}}</h2></p>
-    </md-list-item>
-  </md-list>
+  <table style="width:100%">
+    <thead>
+        <th rel='date' style="width:33%"><h1>Date/Time Completed</h1></th>
+        <th rel='activity' style="width:33%"><h1>Activity</h1></th>
+        <th rel='points' style="width:33%"><h1>Points</h1></th>
+    </thead>
+    <tbody>
+    <tr class = "hoverBoard" ng-repeat="activity in log">
+      <td rel="log-date" style="text-align: center;width:33%"><h2>{{activity.date}}</h2></td>
+      <td rel="log-activity" style="text-align: center;width:33%"><h2>{{activity.activity}}</h2></td>
+      <td rel="log-points" style="text-align: center;width:33%"><h2>{{activity.points}}</h2></td>
+    </tr>
+    </tbody>
+  </table>
 </div>

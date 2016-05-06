@@ -1,22 +1,12 @@
-let HistoryController = ($scope, $state) => {
-    $scope.goTo = function(state){
+let HistoryController = ($scope, $state, activityHistory) => {
+  $scope.totalPoints = activityHistory.totalPoints();
+
+  $scope.goTo = function(state){
     $state.go(state);
   };
-  $scope.points = 0;
-  $scope.log = {
-    'activities': [
-      {
-        'date': '2016/05/05',
-        'name': 'go fly a kite',
-        'points': 25
-      },
-      {
-        'date': '2016/05/03',
-        'name': 'go play with hoop and ball on blacktop',
-        'points': 50
-      }
-    ]
-  };
+
+
+  $scope.log = activityHistory.log;
 
   /*
   $http.get('./log.json').then(function successCallback(response) {
@@ -35,6 +25,6 @@ let HistoryController = ($scope, $state) => {
 
 };
 
-HistoryController.$inject = ['$scope', '$state'];
+HistoryController.$inject = ['$scope', '$state', 'activityHistory'];
 
 export {HistoryController};
