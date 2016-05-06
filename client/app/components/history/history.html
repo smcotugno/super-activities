@@ -1,3 +1,30 @@
 <div>
- <h1>hello history</h1>
+  <md-toolbar>
+    <div class = "md-toolbar-tools">
+      <md-button aria-label = "Home" ng-click = "goTo('home')"
+                 rel="home-button">Home</md-button>
+      <h1>
+        <span rel="title">Activity History</span>
+      </h1>
+      <span flex = ""></span>
+      <h1>
+        <span rel="total-points-title">Total Points: </span>
+        <span style="color: yellow;"rel="total-points">{{points}}</span>
+      </h1>
+    </div>
+  </md-toolbar>
+
+  <md-list>
+    <md-list-item class="" layout-align="center">
+      <p><h1 rel='date'>Date/Time Completed</h1></p>
+      <p><h1 rel='activity'>Activity</h1></p>
+      <p><h1 rel='points'>Points</h1></p>
+    </md-list-item>
+    <md-list-item class="secondary-button-padding"
+                  layout-align="center" rel="log" ng-repeat="activity in log.activities">
+      <p><h2 rel="log-date">{{activity.date}} </h2></p>        x
+      <p><h2 rel="log-activity">{{activity.name}}</h2></p>
+      <p><h2 rel="log-points">{{activity.points}}</h2></p>
+    </md-list-item>
+  </md-list>
 </div>
