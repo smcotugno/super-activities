@@ -1,15 +1,31 @@
 let DetailsController = ($scope, $state) => {
-  $scope.isCurrent = false;
+  let currentActivity = function (activity) {
+    return {
+      name: activity.name,
+      details: activity.details,
+      points: activity.points,
+      isActive: false
+    };
+  };
+
+  //TODO: Replace these with the proper references, if we come up with those
+  $scope.currentActivity = currentActivity({
+    name: 'Basketball',
+    details: 'Ball, Hoop, Court',
+    points: 40
+  });
+
+  //$scope.isCurrent = false;
   $scope.start = function start() {
-      $scope.isCurrent = true;
+      $scope.currentActivity.isCurrent = true;
   };
   $scope.cancel = function cancel() {
-    $scope.isCurrent = false;
+    $scope.currentActivity.isCurrent = false;
     $state.go('home');
   };
 
   $scope.done = function done() {
-    $scope.isCurrent = false;
+    $scope.currentActivity.isCurrent = false;
     $state.go('points');
   };
 };

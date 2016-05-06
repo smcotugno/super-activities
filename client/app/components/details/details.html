@@ -4,17 +4,17 @@
       <md-card layout-align="center center">
         <md-card-title>
           <md-card-title-text>
-            <h1 class="md-headline">Activity name</h1>
+            <h1 class="md-headline">{{currentActivity.name}}</h1>
           </md-card-title-text>
         </md-card-title>
         <md-card-content>
-          <h2>Description</h2>
-          <h4>Point Value</h4>
+          <h2>{{currentActivity.details}}</h2>
+          <h4>{{currentActivity.points}}</h4>
         </md-card-content>
         <md-card-actions layout="column">
-          <md-button ng-disabled="isCurrent" class="md-raised md-primary" rel="start" ng-click="start()">Start</md-button>
-          <md-button ng-disabled="!isCurrent" class="md-raised" rel="done" ng-click="done()">Done</md-button>
-          <md-button ng-disabled="!isCurrent" class="md-raised md-warn" rel="cancel" ng-click="cancel()">Cancel</md-button>
+          <md-button ng-disabled="currentActivity.isCurrent" class="md-raised md-primary" rel="start" ng-click="start()">Start</md-button>
+          <md-button ng-disabled="!currentActivity.isCurrent" class="md-raised" rel="done" ng-click="done()">Done</md-button>
+          <md-button ng-disabled="!currentActivity.isCurrent" class="md-raised md-warn" rel="cancel" ng-click="cancel()">Cancel</md-button>
         </md-card-actions>
       </md-card>
     </div>
