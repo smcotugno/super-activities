@@ -16,6 +16,7 @@ $scope.myActivity = theCurrentActivity;
 
   $scope.goToActivityDetails = function goToActivityDetails(num) {
      // populate object
+    $scope.myActivity.set(num);
     if ( num === 1 ) {
       $scope.myActivity.set($scope.sampleActivity1);
     } else {
@@ -32,6 +33,9 @@ $scope.myActivity = theCurrentActivity;
     $state.go('home');
   };
 
+  //$http.get("http://localhost:3000/activities").then(function (response) {
+  //  $scope.myData = response.data;
+  //});
 };
 
 ActivityController.$inject = ['$scope', '$state', 'theCurrentActivity'];
