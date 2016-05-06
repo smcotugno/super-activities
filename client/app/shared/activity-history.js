@@ -2,14 +2,8 @@ const activityHistory = () => {
   const log = [{
     id: 1,
     activity: 'Go jump in the lake',
-    date: '2016-05-03 15:40',
-    points: 100,
-    username: 'Oscar'
-  }, {
-    id: 1,
-    activity: 'Basketball',
     date: '2016-05-04 16:30',
-    points: 50,
+    points: 100,
     username: 'Oscar'
   }, {
       id: 2,
