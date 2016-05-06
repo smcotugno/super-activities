@@ -1,6 +1,7 @@
 import {describe, beforeEach, expect, it} from '../test-helper';
 import 'script!jquery/dist/jquery';
 import angular from 'angular';
+import td from 'testdouble';
 
 import {points} from './points';
 
@@ -33,6 +34,14 @@ describe('points page', () => {
 
     it('a title called hello points', () => {
       expect($(element).find('h1').text()).to.equal(' ');
+    });
+
+    it('test home button to go to home', () => {
+      td.replace($state, 'go');
+      $(element).find('[rel=home-button]').click();
+      $scope.$apply();
+      td.verify($state.go('home'));
+      td.reset();
     });
 
   });

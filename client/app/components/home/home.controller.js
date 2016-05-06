@@ -1,7 +1,7 @@
 let HomeController = ($scope, $state) => {
   $scope.title = 'Play Outside';
-  $scope.goToActivities = function(){
-  $state.go('activity');
+  $scope.goTo = function(state){
+  $state.go(state);
   };
 
 };
