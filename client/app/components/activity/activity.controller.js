@@ -14,11 +14,11 @@ $scope.myActivity = theCurrentActivity;
     points: 40
   };
 
-  $scope.goToActivityDetails = function goToActivityDetails(num) {
+  $scope.goToActivityDetails = function goToActivityDetails(parameter1) {
      // populate object
-    $scope.myActivity.set(num);
-    if ( num === 1 ) {
-      $scope.myActivity.set($scope.sampleActivity1);
+ //   $scope.myActivity.set(num);
+    if ( parameter1 === '1' ) {
+	  $scope.myActivity.set($scope.sampleActivity1);
     } else {
       $scope.myActivity.set($scope.sampleActivity2);
     }
