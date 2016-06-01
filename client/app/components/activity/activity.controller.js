@@ -2,19 +2,19 @@ let ActivityController = ($scope, $state, theCurrentActivity) => {
 
 $scope.myActivity = theCurrentActivity;
 
-  $scope.sampleActivity1 = {
+$scope.sampleActivity1 = {
     name: 'Basketball',
     description: 'This is a description of Basketball',
     points: 50
   };
 
-  $scope.sampleActivity2 = {
+$scope.sampleActivity2 = {
     name: 'Baseball',
     description: 'This is a description of Baseball',
     points: 40
   };
 
-  $scope.goToActivityDetails = function goToActivityDetails(parameter1) {
+$scope.goToActivityDetails = function goToActivityDetails(parameter1) {
      // populate object
  //   $scope.myActivity.set(num);
     if ( parameter1 === '1' ) {
@@ -25,11 +25,11 @@ $scope.myActivity = theCurrentActivity;
     $state.go('details');
   };
 
-  $scope.goToPoints = function goToPoints() {
+$scope.goToPoints = function goToPoints() {
     $state.go('points');
   };
 
-  $scope.goToHome = function goToHome() {
+$scope.goToHome = function goToHome() {
     $state.go('home');
   };
 
