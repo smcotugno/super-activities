@@ -100,6 +100,18 @@ describe('activity page', () => {
       $scope.$apply();
       expect(!$(element).find('[rel=current-button]').is(':disabled')).to.equal(scope.myActivity.isActive());
     });
+    
+    it('go to Basketball details when selecting first activity in the list', () => {
+        let scope = element.isolateScope();
+        scope.myActivity.setActive();
+        $scope.$apply();
+        td.replace($state, 'go');
+        $(element).find('[rel=details-button]').click();
+        $scope.$apply();
+ //       td.verify($scope.myActivity.name === 'Basketball');
+        expect(scope.myActivity.name()).to.equal('Basketball');
+        td.reset();
+      });
 
   });
 });
