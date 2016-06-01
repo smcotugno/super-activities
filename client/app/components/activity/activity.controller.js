@@ -25,7 +25,13 @@ let ActivityController = ($scope, $state, theCurrentActivity) => {
 	    description: 'This is a description of Hockey',
 	    points: 30
 	  };
-	
+
+	$scope.sampleActivity5 = {
+		    name: 'Soccer',
+		    description: 'This is a description of Soccer',
+		    points: 28
+		  };
+
 	$scope.goToActivityDetails = function goToActivityDetails(parameter1) {
      // populate object
 	 //   $scope.myActivity.set(num);
@@ -35,8 +41,10 @@ let ActivityController = ($scope, $state, theCurrentActivity) => {
 	      $scope.myActivity.set($scope.sampleActivity2);
 	    } else if ( parameter1 === '3' ) {
 	      $scope.myActivity.set($scope.sampleActivity3);
+	    } else if ( parameter1 === '4' ) {
+		  $scope.myActivity.set($scope.sampleActivity4);
 	    } else {
-	      $scope.myActivity.set($scope.sampleActivity4);    	
+	      $scope.myActivity.set($scope.sampleActivity5);    	
 	    }
 	    $state.go('details');
    };
