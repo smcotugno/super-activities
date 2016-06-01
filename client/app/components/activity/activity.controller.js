@@ -14,13 +14,21 @@ $scope.sampleActivity2 = {
     points: 40
   };
 
+$scope.sampleActivity3 = {
+    name: 'Football',
+    description: 'This is a description of Football',
+    points: 60
+  };
+
 $scope.goToActivityDetails = function goToActivityDetails(parameter1) {
      // populate object
  //   $scope.myActivity.set(num);
     if ( parameter1 === '1' ) {
 	  $scope.myActivity.set($scope.sampleActivity1);
-    } else {
+    } else if ( parameter1 === '2' ) {
       $scope.myActivity.set($scope.sampleActivity2);
+    } else {
+      $scope.myActivity.set($scope.sampleActivity3);    	
     }
     $state.go('details');
   };
