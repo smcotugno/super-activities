@@ -27,9 +27,9 @@ let ActivityController = ($scope, $state, theCurrentActivity) => {
 	  };
 
 	$scope.sampleActivity5 = {
-		    name: 'Soccer',
-		    description: 'This is a description of Soccer',
-		    points: 28
+		    name: 'Cricket',
+		    description: 'This is a description of Cricket',
+		    points: 18
 		  };
 
 	$scope.sampleActivity6 = {
