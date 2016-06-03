@@ -33,9 +33,9 @@ let ActivityController = ($scope, $state, theCurrentActivity) => {
 		  };
 
 	$scope.sampleActivity6 = {
-		    name: 'Bowling',
-		    description: 'This is a description of Bowling',
-		    points: 11
+		    name: 'Darts',
+		    description: 'This is a description of Darts',
+		    points: 33
 		  };
 
 	$scope.goToActivityDetails = function goToActivityDetails(parameter1) {
