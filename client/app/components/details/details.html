@@ -22,7 +22,7 @@
           </md-button>
 
           <md-button
-              ng-disabled="!currentActivity.isActive()"
+              ng-disabled="currentActivity.isNotActive()"
               class="md-raised"
               rel="done"
               ng-click="done()">
@@ -30,7 +30,7 @@
           </md-button>
 
           <md-button
-              ng-disabled="!currentActivity.isActive()"
+              ng-disabled="currentActivity.isNotActive()"
               class="md-raised md-warn"
               rel="cancel"
               ng-click="cancel()">
