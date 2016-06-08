@@ -32,8 +32,8 @@ describe('home page', () => {
       expect($state.current.url).to.equal('/home');
     });
 
-    it('a title at the top: Play Outside', () => {
-      expect($(element).find('h1').text()).to.equal('Play Outside');
+    it('a title at the top: Super Activities', () => {
+      expect($(element).find('h1').text()).to.equal('Super Activities');
     });
 
     it('a button labeled "Activities"', () => {
