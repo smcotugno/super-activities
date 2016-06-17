@@ -1,4 +1,4 @@
-var dbCredentials = {
+/* var dbCredentials = {
 	dbName : 'super-activities-db'
 };
 
@@ -139,6 +139,7 @@ function initDBConnection() {
 	}
 		
 }
+*/
 
 let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 
@@ -216,22 +217,13 @@ let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 	    $state.go('home');
 	  };
 
-	initDBConnection();
+//	initDBConnection();
 
-	var myUrl = dbCredentials.url + "/" + dbCredentials.dbName + "/_all_docs/?include_docs=true";
-	console.log('myURL = ', myUrl);
-	var encodedCredsToUse = '';
-	if ( lastCredsUsed.length > 0 ) {
-		// use the last encoded version
-		encodedCredsToUse = lastCredsUsed;
-	} else {
-		// generate Base64 encoded version
-		encodedCredsToUse = encodeBase64(dbCredentials.user + ":" + dbCredentials.password);
-		lastCredsUsed = encodedCredsToUse;
-	}
+	var myUrl = "https://super-activity-server.mybluemix.net/api/activities";
+//	console.log('myURL = ', myUrl);
 	
-	$http.defaults.headers.common.Authorization = 'Basic ';
-	$http.defaults.headers.common['Authorization'] = 'Basic ' + lastCredsUsed;	
+//	$http.defaults.headers.common.Authorization = 'Basic ';
+//	$http.defaults.headers.common['Authorization'] = 'Basic ' + lastCredsUsed;	
 	$http.get(myUrl).then(function (response) {
 		// GET was OK
 		var activityList = [];
@@ -242,8 +234,8 @@ let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 		   do {
 			   activityList[i] = {};
 			   activityList[i].name = response.data.rows[i].id;
-			   activityList[i].description = response.data.rows[i].doc.description;
-			   activityList[i].points = response.data.rows[i].doc.points;
+			   activityList[i].description = response.data.rows[i].description;
+			   activityList[i].points = response.data.rows[i].points;
 			   i++;
 		   } while ( i < response.data.total_rows );
 	   }   
