@@ -1,3 +1,11 @@
+// globals for this controller
+var myUrl = "https://super-activity-server-dev.mybluemix.net/api/activities";
+var myOtherUrl = "https://super-activity-server-dev.eu-gb.mybluemix.net/api/activities";
+var urlToUse = myUrl;
+
+var maxBackupCount = 10;
+var curBackupCount = 0;
+
 let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 
    $scope.myActivity = theCurrentActivity;
@@ -15,12 +23,19 @@ let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 	$scope.goToHome = function goToHome() {
 	    $state.go('home');
 	  };
-
-
-	var myUrl = "https://super-activity-server-dev.mybluemix.net/api/activities";
-	var myOtherUrl = "https://super-activity-server-dev.eu-gb.mybluemix.net/api/activities";
 	
-	$http.get(myUrl).then(function (response) {
+	if ( urlToUse !== myUrl ) {
+		// check backup count
+		if ( curBackupCount > maxBackupCount ) {
+			// switch back to normal main url in case its up
+			urlToUse = myUrl;
+			curBackupCount = 0;
+			console.log("Switching back to primary url: " + myUrl);
+		} else {
+			curBackupCount++;
+		}
+	}
+	$http.get(urlToUse).then(function (response) {
 		// GET was OK
 		var activityList = [];
 //		console.log("Total rows = " + response.data.total_rows);
@@ -43,6 +58,7 @@ let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 		if ( response.status == "404" || response.status == "-1" ) {
 			// try the other site
 			console.warn("Retrying on backup URL: " + myOtherUrl);
+			urlToUse = myOtherUrl;
 			$http.get(myOtherUrl).then(function (response) {
 				// GET was OK
 				var activityList = [];
