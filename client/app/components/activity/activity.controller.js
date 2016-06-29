@@ -17,8 +17,8 @@ let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 	  };
 
 
-	var myUrl = "https://super-activity-server.mybluemix.net/api/activities";
-	var myOtherUrl = "https://super-activity-server.eu-gb.mybluemix.net/api/activities";
+	var myUrl = "https://super-activity-server-dev.mybluemix.net/api/activities";
+	var myOtherUrl = "https://super-activity-server-dev.eu-gb.mybluemix.net/api/activities";
 	
 	$http.get(myUrl).then(function (response) {
 		// GET was OK
