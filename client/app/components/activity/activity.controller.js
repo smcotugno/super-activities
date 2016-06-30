@@ -1,9 +1,13 @@
 // globals for this controller
-var myUrl = "https://super-activity-server-dev.mybluemix.net/api/activities";
-var myOtherUrl = "https://super-activity-server-dev.eu-gb.mybluemix.net/api/activities";
+const myUrl = "https://super-activity-server-dev.mybluemix.net/api/activities";
+const myOtherUrl = "https://super-activity-server-dev.eu-gb.mybluemix.net/api/activities";
 var urlToUse = myUrl;
 
-var maxBackupCount = 10;
+const primaryTimeout = 5000;
+const backupTimeout = 15000;
+var timeoutToUse = primaryTimeout;
+
+const maxBackupCount = 5;
 var curBackupCount = 0;
 
 let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
@@ -29,13 +33,14 @@ let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 		if ( curBackupCount > maxBackupCount ) {
 			// switch back to normal main url in case its up
 			urlToUse = myUrl;
+			timeoutToUse = primaryTimeout;
 			curBackupCount = 0;
 			console.log("Switching back to primary url: " + myUrl);
 		} else {
 			curBackupCount++;
 		}
 	}
-	$http.get(urlToUse).then(function (response) {
+	$http.get(urlToUse, {timeout: timeoutToUse}).then(function (response) {
 		// GET was OK
 		var activityList = [];
 //		console.log("Total rows = " + response.data.total_rows);
@@ -59,7 +64,8 @@ let ActivityController = ($scope, $state, $http, theCurrentActivity) => {
 			// try the other site
 			console.warn("Retrying on backup URL: " + myOtherUrl);
 			urlToUse = myOtherUrl;
-			$http.get(myOtherUrl).then(function (response) {
+			timeoutToUse = backupTimeout;
+			$http.get(urlToUse, {timeout: timeoutToUse}).then(function (response) {
 				// GET was OK
 				var activityList = [];
 //				console.log("Total rows = " + response.data.total_rows);
